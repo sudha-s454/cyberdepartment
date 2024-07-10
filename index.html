@@ -1,0 +1,19 @@
+import requests
+
+def access_google():
+    url = 'http://www.google.com/'
+    try:
+        response = requests.get(url)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            print('Successfully accessed Google.com')
+            # Print some of the response content
+            print('First 500 characters of the HTML:')
+            print(response.text[:500])
+        else:
+            print(f'Failed to access Google.com. Status code: {response.status_code}')
+    except requests.exceptions.RequestException as e:
+        print(f'An error occurred: {e}')
+
+# Call the function to execute
+access_google()
